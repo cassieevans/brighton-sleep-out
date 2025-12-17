@@ -282,11 +282,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  transition: 0.25s ease-out;
-  color: var(--yellow);
-}
-
 .container {
   max-width: 1300px;
   margin: 0 auto;
@@ -732,6 +727,7 @@ li:after {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 footer {
