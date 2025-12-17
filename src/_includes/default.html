@@ -1,121 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{title}}</title>
-    {% if description %}
-    <meta name="description" content="{{description}}" />
-    <meta
-      property="og:image"
-      content="https://mods-aid.co.uk/static/img/mods-aid-share.jpg"
-    />
-    {% endif %} {% block head %}{% endblock %}
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
-    <!-- capture the CSS content as a Nunjucks variable -->
-    {% set css %} {% include "styles.css" %} {% endset %}
-    <!-- feed it through our cssmin filter to minify -->
-    <style>
-      {{ css | cssmin | safe }}
-    </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    {% include "./partials/navbar.html" %} {{ content | safe }} {% include
-    "./partials/footer.html" %}
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{{title}}</title>
+		{% if description %}
+		<meta name="description" content="{{description}}" />
+		<meta
+			property="og:image"
+			content="https://mods-aid.co.uk/static/img/mods-aid-share.jpg"
+		/>
+		{% endif %} {% block head %}{% endblock %}
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+		<!-- capture the CSS content as a Nunjucks variable -->
+		{% set css %} {% include "styles.css" %} {% endset %}
+		<!-- feed it through our cssmin filter to minify -->
+		<style>
+			{{ css | cssmin | safe }}
+		</style>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="icon"
+			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌘</text></svg>"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<div id="stars"></div>
+		{% include "./partials/navbar.html" %} {{ content | safe }} {% include
+		"./partials/footer.html" %}
 
-    <script src="/static/js/alpine.js"></script>
+		<script src="/static/js/alpine.js"></script>
 
-    {% if path == "home" %}
-    <!-- Netlify Identity Widget -->
-    <!-- Needed only if you are using Netlify Identity feature -->
-    <script
-      type="text/javascript"
-      src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"
-      integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script>
-      let path = document.querySelector("#stroke");
-      const pathLength = path.getTotalLength();
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"
+			integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script>
+			document.getElementById('year').textContent = new Date().getFullYear();
 
-      console.log(path, gsap);
-      // set is handy for this
-      gsap.set(path, {
-        strokeDasharray: pathLength + 20, // add a bit more gap
-        strokeDashoffset: pathLength + 30, // offset the gap
-      });
+			// stars
+			// Parameters
+			const width = 1600; // 16 units
+			const height = 900; // 9 units
+			const numStars = 100; // total stars
 
-      gsap.set("#logo, .intro-section", {
-        opacity: 1,
-      });
+			// Create SVG element
+			const svgNS = 'http://www.w3.org/2000/svg';
+			const svg = document.createElementNS(svgNS, 'svg');
+			svg.setAttribute('width', '100%');
+			svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+			svg.setAttribute('xmlns', svgNS);
+			svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+			svg.style.background = '#0b0c2b'; // dark night sky color
 
-      let tl = gsap.timeline({ delay: 0.2 });
-      // staggers are nice for this kind of thing - super concise
+			// Function to generate a random number between min and max
+			function randomBetween(min, max) {
+				return Math.random() * (max - min) + min;
+			}
 
-      tl.from("#we_are_the > *", {
-        duration: 0.2,
-        opacity: 0,
-        ease: "power2.out",
-      })
-        .from(
-          "#mods > *",
-          {
-            duration: 0.8,
-            ease: "power2.out",
-            yPercent: 200,
-            stagger: {
-              amount: 0.2,
-            },
-          },
-          "<"
-        )
-        .to(
-          path,
-          {
-            duration: 1.5,
-            ease: "power2.out",
-            strokeDashoffset: 0,
-          },
-          "<"
-        )
-        .from(
-          "#red",
-          {
-            opacity: 0,
-            scale: 0.8,
-            transformOrigin: "center center",
-          },
-          "<"
-        )
-        .from(
-          "#_2023",
-          {
-            opacity: 0,
-            duration: 0.5,
-            ease: "power2.out",
-            xPercent: -10,
-          },
-          "-=0.4"
-        )
-        .from(".intro-section", {
-          opacity: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          yPercent: 10,
-        })
-        .timeScale(0.7);
-    </script>
-    {% endif %}
-  </body>
+			// Generate stars
+			for (let i = 0; i < numStars; i++) {
+				const star = document.createElementNS(svgNS, 'circle');
+				const x = randomBetween(0, width);
+				const y = randomBetween(0, height);
+				const radius = randomBetween(0.5, 3); // star size
+				const opacity = randomBetween(0.5, 1); // brightness
+
+				star.setAttribute('cx', x);
+				star.setAttribute('cy', y);
+				star.setAttribute('r', radius);
+				star.setAttribute('fill', gsap.utils.random(['white', '#fdc544']));
+				star.setAttribute('opacity', opacity);
+
+				svg.appendChild(star);
+			}
+
+			// Append SVG to body
+			// Append SVG to element with id "stars"
+			const container = document.getElementById('stars');
+			if (container) {
+				container.appendChild(svg);
+
+				gsap.to('#stars svg', {
+					opacity: 1
+				});
+
+				gsap
+					.to('#stars circle', {
+						opacity: 0,
+						duration: 1.4,
+						stagger: {
+							each: 0.1,
+							from: 'random',
+							repeat: -1,
+							yoyo: true
+						}
+					})
+					.progress(0.5);
+			} else {
+				console.error('Element with id "stars" not found!');
+			}
+
+			function initAccordionCSS() {
+				document
+					.querySelectorAll('[data-accordion-css-init]')
+					.forEach((accordion) => {
+						const closeSiblings =
+							accordion.getAttribute('data-accordion-close-siblings') ===
+							'true';
+
+						accordion.addEventListener('click', (event) => {
+							const toggle = event.target.closest('[data-accordion-toggle]');
+							if (!toggle) return; // Exit if the clicked element is not a toggle
+
+							const singleAccordion = toggle.closest('[data-accordion-status]');
+							if (!singleAccordion) return; // Exit if no accordion container is found
+
+							const isActive =
+								singleAccordion.getAttribute('data-accordion-status') ===
+								'active';
+							singleAccordion.setAttribute(
+								'data-accordion-status',
+								isActive ? 'not-active' : 'active'
+							);
+
+							// When [data-accordion-close-siblings="true"]
+							if (closeSiblings && !isActive) {
+								accordion
+									.querySelectorAll('[data-accordion-status="active"]')
+									.forEach((sibling) => {
+										if (sibling !== singleAccordion)
+											sibling.setAttribute(
+												'data-accordion-status',
+												'not-active'
+											);
+									});
+							}
+						});
+					});
+			}
+
+			// Initialize Accordion CSS
+			document.addEventListener('DOMContentLoaded', () => {
+				initAccordionCSS();
+			});
+		</script>
+	</body>
 </html>

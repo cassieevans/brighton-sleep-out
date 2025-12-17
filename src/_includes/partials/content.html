@@ -1,26 +1,104 @@
-<section class="container attractions grid pad-3xl">
-  <ul role="list" class="flow">
-    {% if attractions.attraction %} {% for item in attractions.attraction %}
-    <li class="h3 red">{{item.info}}</li>
-    {% endfor %} {% endif %}
-  </ul>
-  <img src="/static/img/scooter.png" alt="" />
+<section class="container about grid pad-3xl">
+	<h2 class="center">What It’s All About</h2>
+  <p>One night can make a real difference. Sleep out in solidarity with people facing homelessness, enjoy a powerful evening of live entertainment, and raise vital funds for Sussex Homeless Support. Homelessness is rising. Funding is falling. The need has never been greater.
+
+Every ticket, every sponsorship, and every person who sleeps out helps save lives on our streets.</section>
+
+<section class="container about">
+	<div class="testimonial">
+    <img src="/static/img/jim.jpg" alt="">
+		<div class="testimonial__inner flow">
+      <svg class="testimonial__svg" viewBox="0 0 418 562" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Artboard1" transform="matrix(0.693056,0,0,1,622.633,-502.31)">
+        <rect x="-898.387" y="502.31" width="602.811" height="561.498" style="fill:none;"/>
+        <clipPath id="_clip1">
+            <rect x="-898.387" y="502.31" width="602.811" height="561.498"/>
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <g transform="matrix(-0.00700107,1.43413,-2.43399,-0.00570731,4050.9,-447.132)">
+                <path d="M670.307,1752.38C544.16,1742.9 1218.85,1778.8 1074,1773.73C997.762,1843.39 919.026,1910.32 837.993,1974.34C809.534,1996.83 767.444,1985.83 753.511,1952.35L670.307,1752.38Z" style="fill:white;fill-rule:nonzero;"/>
+            </g>
+        </g>
+    </g>
+</svg>
+
+    <blockquote>
+			First and foremost, I want to say a huge thank you to everyone who has
+			supported Sussex Homeless Support over the years. Your support is what
+			keeps us going. 
+    </br>
+    SHS is now in its 11th year, and sadly the number of
+			people experiencing homelessness continues to rise, with no clear solution
+			in sight. The cost of living has doubled in many areas, while our funding
+			has fallen by around 27% over the last two years. We’ve already cut
+			everything we can without affecting frontline services — and now, quite
+			simply, we need to find new funds to keep helping the people who rely on
+			us. 
+  </br>In December 2019, we took part in the <a href="https://www.bigsleepout.com/">World Big Sleep Out.</a> Despite one
+			of the worst storms of the year, people showed up in huge numbers. The
+			funds raised supported our work for over three years, helping carry us
+			through COVID and beyond. That generosity made a real, lasting difference.
+			Now, six years on, it’s time to do it again.
+On Sunday 18 January 2026, we’re coming together for another Sleep Out in Brighton. With incredible entertainment, strong community backing, and renewed urgency, this event has the power to change lives — and I truly hope you’ll be part of it.
+
+Thank you, as always, for standing with us.
+
+		</blockquote>
+		<p>— <a href="https://www.bbc.com/news/av/uk-england-sussex-49451155">Jim Deans</a>, <cite>Sussex Homeless Support</cite></p>
+  </div>
+
+  </div>
 </section>
 
-<section class="pad-3xl banner">
-  {{content.banner | markdownify | safe}}
-</section>
-
-<section class="container sponsors pad-xl pad-xl-b">
-  <h2 class="center">Our Sponsors</h2>
-  <ul role="list" class="sponsors-grid pad-t">
-    {% if sponsors.links %} {% for item in sponsors.links %}
-    <li>
-      <a class="sponsor flow" href="{{item.url}}" target="_blank">
-        <h5>{{item.title}} →</h5>
-        <img class="sponsor__img" src="{{item.logo}}" alt="" />
-      </a>
+<section class="container container--sm faq">
+  <h2>FAQ's</h2>
+	<div data-accordion-close-siblings="true" data-accordion-css-init="" class="accordion-css">
+  <ul class="accordion-css__list">
+    <li data-accordion-status="not-active" class="accordion-css__item">
+      <div data-hover="" data-accordion-toggle="" class="accordion-css__item-top">
+        <h3 class="accordion-css__item-h3">What to Bring?</h3>
+        <div class="accordion-css__item-icon">
+          <svg class="accordion-css__item-icon-svg" xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none"><path d="M28.5 22.5L18 12L7.5 22.5" stroke="currentColor" stroke-width="3" stroke-miterlimit="10"></path></svg>
+        </div>
+      </div>
+      <div class="accordion-css__item-bottom">
+        <div class="accordion-css__item-bottom-wrap">
+          <div class="accordion-css__item-bottom-content">
+            <p class="accordion-css__item-p">Please bring warm, layered clothing, a sleeping bag, and something to sleep on (such as a ground mat or cardboard). Comfortable shoes, a small bag, and a fully charged phone are recommended. Hot food will be available overnight, with breakfast, tea, and coffee served from 7am.</p>
+          </div>
+        </div>
+      </div>
     </li>
-    {% endfor %} {% endif %}
+    <li data-accordion-status="not-active" class="accordion-css__item">
+      <div data-hover="" data-accordion-toggle="" class="accordion-css__item-top">
+        <h3 class="accordion-css__item-h3">Where is it hosted?</h3>
+        <div class="accordion-css__item-icon">
+          <svg class="accordion-css__item-icon-svg" xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none"><path d="M28.5 22.5L18 12L7.5 22.5" stroke="currentColor" stroke-width="3" stroke-miterlimit="10"></path></svg>
+        </div>
+      </div>
+      <div class="accordion-css__item-bottom">
+        <div class="accordion-css__item-bottom-wrap">
+          <div class="accordion-css__item-bottom-content">
+            <p class="accordion-css__item-p">We will be throwing the sleep out at the Volks Bar and Venue. <a href="https://maps.app.goo.gl/fgjqWghaso1CDiCa9">3 The Colonnade, Madeira Drive, Brighton, BN2 1PS</a></p>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li data-accordion-status="not-active" class="accordion-css__item">
+      <div data-hover="" data-accordion-toggle="" class="accordion-css__item-top">
+        <h3 class="accordion-css__item-h3">Can I donate instead of taking part?</h3>
+        <div class="accordion-css__item-icon">
+          <svg class="accordion-css__item-icon-svg" xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 36 36" fill="none"><path d="M28.5 22.5L18 12L7.5 22.5" stroke="currentColor" stroke-width="3" stroke-miterlimit="10"></path></svg>
+        </div>
+      </div>
+      <div class="accordion-css__item-bottom">
+        <div class="accordion-css__item-bottom-wrap">
+          <div class="accordion-css__item-bottom-content">
+            <p class="accordion-css__item-p">Of course, we welcome donations. You can donate over on our <a href="https://sussexhomelesssupport.enthuse.com/cf/the-brighton-big-world-sleepout">enthuse page.</a> Thank you.</p>
+          </div>
+        </div>
+      </div>
+    </li>
   </ul>
+</div>
 </section>
