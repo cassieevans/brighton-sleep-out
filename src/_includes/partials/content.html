@@ -1,0 +1,26 @@
+<section class="container attractions grid pad-3xl">
+  <ul role="list" class="flow">
+    {% if attractions.attraction %} {% for item in attractions.attraction %}
+    <li class="h3 red">{{item.info}}</li>
+    {% endfor %} {% endif %}
+  </ul>
+  <img src="/static/img/scooter.png" alt="" />
+</section>
+
+<section class="pad-3xl banner">
+  {{content.banner | markdownify | safe}}
+</section>
+
+<section class="container sponsors pad-xl pad-xl-b">
+  <h2 class="center">Our Sponsors</h2>
+  <ul role="list" class="sponsors-grid pad-t">
+    {% if sponsors.links %} {% for item in sponsors.links %}
+    <li>
+      <a class="sponsor flow" href="{{item.url}}" target="_blank">
+        <h5>{{item.title}} →</h5>
+        <img class="sponsor__img" src="{{item.logo}}" alt="" />
+      </a>
+    </li>
+    {% endfor %} {% endif %}
+  </ul>
+</section>

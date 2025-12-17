@@ -1,0 +1,76 @@
+backend:
+  # Use netlify identity as backend
+  name: git-gateway
+  branch: master
+  ### enable below lines for github integration ###
+  # name: github
+  # repo: surjithctly/neat-starter
+media_folder: "src/static/img"
+public_folder: "/static/img"
+
+# Please run "npx netlify-cms-proxy-server" for local backend
+local_backend: true
+# publish_mode: editorial_workflow
+collections:
+  - label: "Settings"
+    name: "settings"
+    editor:
+      preview: false
+    files:
+      - label: "Main Content"
+        name: "content"
+        file: "src/_data/content.yaml"
+        fields:
+          - { label: Name, name: name, widget: string }
+          - { label: Day, name: day, widget: string }
+          - { label: Time, name: time, widget: string }
+          - { label: Year, name: year, widget: string }
+          - { label: Location, name: location, widget: string }
+          - { label: Google Maps, name: locationLink, widget: string }
+          - { label: Intro, name: intro, widget: "markdown" }
+          - { label: Banner, name: "banner", widget: "markdown" }
+      - label: "Navigation"
+        name: "items"
+        file: "src/_data/navigation.yaml"
+        fields:
+          - label: Nav Items
+            name: items
+            widget: list
+            allow_add: false
+            collapsed: false
+            fields:
+              - { label: Title, name: text, widget: string }
+              - { label: URL, name: url, widget: string }
+      - label: "Sponsors"
+        name: "sponsors"
+        file: "src/_data/sponsors.yaml"
+        fields:
+          - label: Sponsors
+            name: links
+            widget: list
+            collapsed: false
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: URL, name: url, widget: string }
+              - { label: Logo, name: logo, widget: image }
+      - label: "Gallery"
+        name: "gallery"
+        file: "src/_data/gallery.yaml"
+        fields:
+          - label: Gallery
+            name: links
+            widget: list
+            collapsed: false
+            fields:
+              - { label: Description, name: description, widget: string }
+              - { label: Image, name: image, widget: image }
+      - label: "Attractions"
+        name: "attractions"
+        file: "src/_data/attractions.yaml"
+        fields:
+          - label: Attraction
+            name: attraction
+            widget: list
+            collapsed: false
+            fields:
+              - { label: Info, name: info, widget: string }

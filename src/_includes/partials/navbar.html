@@ -1,0 +1,15 @@
+<header>
+  <nav>
+    <div class="container pad-m nav">
+      {% if navigation.items %}
+      <ul role="list">
+        {% for item in navigation.items %}
+        <li class="nav__item">
+          <a href="{{ item.url }}">{{ item.text }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </nav>
+</header>

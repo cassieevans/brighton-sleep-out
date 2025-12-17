@@ -1,0 +1,559 @@
+/*Your Custom CSS Goes here*/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+#logo,
+.intro-section {
+  opacity: 0;
+}
+
+svg {
+  overflow: visible;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-color: var(--red);
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration: none;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* utopia */
+
+/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --fluid-min-width: 320;
+  --fluid-max-width: 1240;
+
+  --fluid-screen: 100vw;
+  --fluid-bp: calc((var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) / (var(--fluid-max-width) - var(--fluid-min-width)));
+}
+
+@media screen and (min-width: 1240px) {
+  :root {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+}
+
+:root {
+  --f-0-min: 18;
+  --f-0-max: 20;
+  --step-0: calc(((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) * var(--fluid-bp));
+
+  --f-1-min: 21.6;
+  --f-1-max: 25;
+  --step-1: calc(((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) * var(--fluid-bp));
+
+  --f-2-min: 25.92;
+  --f-2-max: 31.25;
+  --step-2: calc(((var(--f-2-min) / 16) * 1rem) + (var(--f-2-max) - var(--f-2-min)) * var(--fluid-bp));
+
+  --f-3-min: 31.1;
+  --f-3-max: 39.06;
+  --step-3: calc(((var(--f-3-min) / 16) * 1rem) + (var(--f-3-max) - var(--f-3-min)) * var(--fluid-bp));
+
+  --f-4-min: 37.32;
+  --f-4-max: 48.83;
+  --step-4: calc(((var(--f-4-min) / 16) * 1rem) + (var(--f-4-max) - var(--f-4-min)) * var(--fluid-bp));
+
+  --f-5-min: 44.79;
+  --f-5-max: 61.04;
+  --step-5: calc(((var(--f-5-min) / 16) * 1rem) + (var(--f-5-max) - var(--f-5-min)) * var(--fluid-bp));
+}
+
+h1,
+.h1 {
+  font-size: var(--step-5);
+}
+
+h2,
+.h2 {
+  font-size: var(--step-4);
+}
+
+h3,
+.h3 {
+  font-size: var(--step-2);
+  line-height: 1;
+}
+
+h4,
+.h4,
+.intro * {
+  font-size: var(--step-1);
+}
+
+h5,
+body {
+  font-size: var(--step-0);
+}
+
+/* spacing */
+
+/* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.25,5,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+:root {
+  --fluid-min-width: 320;
+  --fluid-max-width: 1240;
+
+  --fluid-screen: 100vw;
+  --fluid-bp: calc((var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) / (var(--fluid-max-width) - var(--fluid-min-width)));
+}
+
+@media screen and (min-width: 1240px) {
+  :root {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+}
+
+:root {
+  --fc-3xs-min: (var(--fc-s-min) * 0.25);
+  --fc-3xs-max: (var(--fc-s-max) * 0.25);
+
+  --fc-2xs-min: (var(--fc-s-min) * 0.5);
+  --fc-2xs-max: (var(--fc-s-max) * 0.5);
+
+  --fc-xs-min: (var(--fc-s-min) * 0.75);
+  --fc-xs-max: (var(--fc-s-max) * 0.75);
+
+  --fc-s-min: (var(--f-0-min, 18));
+  --fc-s-max: (var(--f-0-max, 20));
+
+  --fc-m-min: (var(--fc-s-min) * 1.5);
+  --fc-m-max: (var(--fc-s-max) * 1.5);
+
+  --fc-l-min: (var(--fc-s-min) * 2);
+  --fc-l-max: (var(--fc-s-max) * 2);
+
+  --fc-xl-min: (var(--fc-s-min) * 3);
+  --fc-xl-max: (var(--fc-s-max) * 3);
+
+  --fc-2xl-min: (var(--fc-s-min) * 4);
+  --fc-2xl-max: (var(--fc-s-max) * 4);
+
+  --fc-3xl-min: (var(--fc-s-min) * 6);
+  --fc-3xl-max: (var(--fc-s-max) * 6);
+
+  /* T-shirt sizes */
+  --space-3xs: calc(((var(--fc-3xs-min) / 16) * 1rem) + (var(--fc-3xs-max) - var(--fc-3xs-min)) * var(--fluid-bp));
+  --space-2xs: calc(((var(--fc-2xs-min) / 16) * 1rem) + (var(--fc-2xs-max) - var(--fc-2xs-min)) * var(--fluid-bp));
+  --space-xs: calc(((var(--fc-xs-min) / 16) * 1rem) + (var(--fc-xs-max) - var(--fc-xs-min)) * var(--fluid-bp));
+  --space-s: calc(((var(--fc-s-min) / 16) * 1rem) + (var(--fc-s-max) - var(--fc-s-min)) * var(--fluid-bp));
+  --space-m: calc(((var(--fc-m-min) / 16) * 1rem) + (var(--fc-m-max) - var(--fc-m-min)) * var(--fluid-bp));
+  --space-l: calc(((var(--fc-l-min) / 16) * 1rem) + (var(--fc-l-max) - var(--fc-l-min)) * var(--fluid-bp));
+  --space-xl: calc(((var(--fc-xl-min) / 16) * 1rem) + (var(--fc-xl-max) - var(--fc-xl-min)) * var(--fluid-bp));
+  --space-2xl: calc(((var(--fc-2xl-min) / 16) * 1rem) + (var(--fc-2xl-max) - var(--fc-2xl-min)) * var(--fluid-bp));
+  --space-3xl: calc(((var(--fc-3xl-min) / 16) * 1rem) + (var(--fc-3xl-max) - var(--fc-3xl-min)) * var(--fluid-bp));
+
+  /* One-up pairs */
+  --space-3xs-2xs: calc(((var(--fc-3xs-min) / 16) * 1rem) + (var(--fc-2xs-max) - var(--fc-3xs-min)) * var(--fluid-bp));
+  --space-2xs-xs: calc(((var(--fc-2xs-min) / 16) * 1rem) + (var(--fc-xs-max) - var(--fc-2xs-min)) * var(--fluid-bp));
+  --space-xs-s: calc(((var(--fc-xs-min) / 16) * 1rem) + (var(--fc-s-max) - var(--fc-xs-min)) * var(--fluid-bp));
+  --space-s-m: calc(((var(--fc-s-min) / 16) * 1rem) + (var(--fc-m-max) - var(--fc-s-min)) * var(--fluid-bp));
+  --space-m-l: calc(((var(--fc-m-min) / 16) * 1rem) + (var(--fc-l-max) - var(--fc-m-min)) * var(--fluid-bp));
+
+  --space-s-m: calc(((var(--fc-s-min) / 16) * 1rem) + (var(--fc-m-max) - var(--fc-s-min)) * var(--fluid-bp));
+
+  --space-l-xl: calc(((var(--fc-l-min) / 16) * 1rem) + (var(--fc-xl-max) - var(--fc-l-min)) * var(--fluid-bp));
+  --space-xl-2xl: calc(((var(--fc-xl-min) / 16) * 1rem) + (var(--fc-2xl-max) - var(--fc-xl-min)) * var(--fluid-bp));
+  --space-2xl-3xl: calc(((var(--fc-2xl-min) / 16) * 1rem) + (var(--fc-3xl-max) - var(--fc-2xl-min)) * var(--fluid-bp));
+
+  /* Custom pairs */
+  --space-s-l: calc(((var(--fc-s-min) / 16) * 1rem) + (var(--fc-l-max) - var(--fc-s-min)) * var(--fluid-bp));
+}
+
+/* baseline */
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4 {
+  margin: 0;
+  color: var(--blue);
+  font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal,
+    "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+}
+
+/* utils  */
+
+.blue {
+  color: var(--blue);
+}
+
+.red {
+  color: var(--red);
+}
+
+.center {
+  text-align: center;
+}
+
+/* components */
+
+html {
+  --red: #e30613;
+  --blue: #312783;
+}
+
+footer {
+  background-color: var(--blue);
+  color: white;
+}
+
+nav {
+  font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal,
+    "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  color: var(--blue);
+}
+
+.line {
+  text-decoration: underline;
+}
+
+a:hover {
+  transition: 0.25s ease-out;
+  color: var(--red);
+}
+
+a.red:hover {
+  color: var(--blue);
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: var(--space-s-m);
+}
+
+.container--sm {
+  max-width: 1000px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-device-width: 800px) {
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .nav__item:last-child {
+    flex: 1 1 100%;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .nav *+* {
+    margin-left: 0.5rem !important;
+  }
+}
+
+.pad-s {
+  padding-top: var(--space-s);
+  padding-bottom: var(--space-s);
+}
+
+.pad-m {
+  padding-top: var(--space-m);
+  padding-bottom: var(--space-m);
+}
+
+.pad-l {
+  padding-top: var(--space-l);
+  padding-bottom: var(--space-l);
+}
+
+.pad-xl {
+  padding-top: var(--space-2xl);
+}
+
+.pad-xl-b {
+  padding-bottom: var(--space-2xl);
+}
+
+.pad-3xl {
+  padding-top: var(--space-3xl);
+}
+
+.pad-t {
+  padding-top: var(--space-s-m);
+}
+
+#logo {
+  width: 900px;
+  max-width: 80vw;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+footer a {
+  color: white;
+}
+
+.sponsor__img {
+  width: 150px;
+  max-width: 150px;
+  max-height: 150px;
+  margin: 0 auto;
+}
+
+.flow *+* {
+  margin-top: 0.5em;
+}
+
+.sponsor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 8px var(--red);
+  padding: var(--space-s);
+  height: 100%;
+}
+
+.sponsor a {
+  text-decoration: none;
+}
+
+.sponsor img {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.grid {
+  --min: 250px;
+  --gap: 1rem;
+
+  display: grid;
+  grid-gap: var(--gap);
+  /* min() with 100% prevents overflow
+  in extra narrow spaces */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
+}
+
+.sponsors-grid {
+  --min: 25ch;
+  --gap: 1rem;
+
+  display: grid;
+  grid-gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
+}
+
+.intro a {
+  color: var(--red);
+}
+
+nav {
+  background-color: white;
+  margin-left: var(--space-s-m);
+  margin-right: var(--space-s-m);
+}
+
+.nav__item:first-child {
+  margin-right: auto;
+}
+
+.nav__item {
+  -webkit-font-smoothing: antialiased;
+  padding: 0.25rem 1rem;
+}
+
+@media (max-width: 600px) {
+  .nav__item {
+    font-size: 4vw;
+    color: orange;
+    padding: 0.25rem;
+  }
+}
+
+.nav__item:last-child {
+  background-color: var(--red);
+  border-radius: 99px;
+}
+
+.nav__item:last-child a {
+  color: white;
+}
+
+.attractions {
+  --min: 300px;
+}
+
+.attractions img {
+  width: 400px;
+  max-width: 70vw;
+  margin: 0 auto;
+}
+
+.attractions li:first-child {
+  font-size: var(--step-4);
+}
+
+.attractions li:nth-of-type(odd) {
+  color: var(--blue);
+}
+
+main {
+  /* make sure to cover the screen */
+  min-height: 100vh;
+  /* need a solid bg to hide the footer */
+  background: white;
+  /* put on top */
+  position: relative;
+  z-index: 1;
+  margin-left: var(--space-s-m);
+  margin-right: var(--space-s-m);
+}
+
+footer {
+  /* place on the bottom */
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 50px;
+}
+
+.banner {
+  text-align: center;
+}
+
+.banner a {
+  text-decoration: underline;
+}
+
+.banner h2 {
+  color: #e30613;
+  margin-bottom: 1rem;
+}
+
+.gallery {
+  --min: 15rem;
+  --aspect-ratio: 4/3;
+  --gap: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.gallery a {
+  flex: 1 1 var(--min);
+  height: max(25vh, 15rem);
+}
+
+@supports (aspect-ratio: 1) {
+  .gallery a {
+    aspect-ratio: var(--aspect-ratio);
+    height: auto;
+  }
+}
+
+.gallery img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.intro.blue img {
+  max-width: 400px;
+  margin: 0 auto;
+}
