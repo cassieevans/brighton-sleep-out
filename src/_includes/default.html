@@ -16,9 +16,7 @@
 		<!-- capture the CSS content as a Nunjucks variable -->
 		{% set css %} {% include "styles.css" %} {% endset %}
 		<!-- feed it through our cssmin filter to minify -->
-		<style>
-			{{ css | cssmin | safe }}
-		</style>
+		<style>{{ css | cssmin | safe }}</style>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
