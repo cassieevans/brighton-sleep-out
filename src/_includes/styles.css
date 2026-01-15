@@ -583,7 +583,11 @@ li:after {
   }
 
   .book {
-    flex: 0 1 33%;
+    flex: 0 1 40%;
+  }
+
+  .info {
+    flex: 0 1 60%;
   }
 
   .circle {
@@ -748,4 +752,25 @@ footer {
   gap: 0.5rem;
   text-align: center;
   justify-content: center;
+}
+
+.donation {
+  margin-top: 4rem;
+  background-color: var(--yellow);
+  border-radius: 99px;
+  display: inline-block;
+  font-size: 1.5rem;
+  color: black;
+  padding: 1rem 1.5rem;
+}
+
+.accordion-css__item li {
+  color: #2c2c2c;
+  margin-bottom: 0;
+  font-size: .875em;
+  line-height: 1.5;
+}
+
+.accordion-css__item li {
+  padding-top: 1rem;
 }
