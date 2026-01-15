@@ -9,14 +9,16 @@
 		<meta name="description" content="{{description}}" />
 		<meta
 			property="og:image"
-			content="https://mods-aid.co.uk/static/img/mods-aid-share.jpg"
+			content="https://www.brightonsleepout.co.uk//static/img/share-sleepout.webp"
 		/>
 		{% endif %} {% block head %}{% endblock %}
 		<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
 		<!-- capture the CSS content as a Nunjucks variable -->
 		{% set css %} {% include "styles.css" %} {% endset %}
 		<!-- feed it through our cssmin filter to minify -->
-		<style>{{ css | cssmin | safe }}</style>
+		<style>
+			{{ css | cssmin | safe }}
+		</style>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
